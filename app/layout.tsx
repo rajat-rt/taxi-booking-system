@@ -3,12 +3,8 @@ import { Inter, Roboto } from 'next/font/google'
 import './globals.css'
 import {
   ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
 } from '@clerk/nextjs'
+import NavBar from '@/components/NavBar'
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -29,14 +25,8 @@ export default function RootLayout({
     <ClerkProvider>
     <html lang="en">
       <body className={roboto.className}>
-        <header className="flex justify-end items-center p-4 gap-4 h-16">
-          <SignedOut>
-            <SignInButton />
-            <SignUpButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+        <header>
+          <NavBar/>
         </header>
         {children}
       </body>
